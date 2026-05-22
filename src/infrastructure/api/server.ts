@@ -38,7 +38,7 @@ export function buildServer(): FastifyInstance {
         error: {
           code: 'VALIDATION_ERROR',
           message: 'Invalid request data',
-          details: error.errors,
+          details: error.issues,
         },
       });
     }
