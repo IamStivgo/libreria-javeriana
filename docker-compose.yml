@@ -1,4 +1,5 @@
 services:
+  # ─── Base de datos ────────────────────────────────────────────────────────
   postgres:
     image: postgres:15-alpine
     container_name: libreria_javeriana_db
@@ -16,6 +17,24 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  # ─── API (Fastify) ────────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: libreria_javeriana_api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://libreria_user:libreria_password@postgres:5432/library
+      DEFAULT_LOAN_DAYS: 14
+    ports:
+      - "3000:3000"
 
 volumes:
   postgres_data:

@@ -1,0 +1,39 @@
+# Control de versiones
+.git
+.gitignore
+
+# Dependencias (se instalan dentro del contenedor)
+node_modules
+
+# Archivos de build locales
+dist
+
+# Variables de entorno locales (se inyectan en runtime)
+.env
+.env.*
+!.env.example
+
+# Archivos de desarrollo y pruebas
+test
+**/*.test.ts
+**/*.spec.ts
+coverage
+.nyc_output
+
+# Configuración de herramientas de desarrollo
+.prettierrc
+eslint.config.js
+vitest.config.ts
+
+# Documentación
+*.md
+!README.md
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Miscelánea
+.DS_Store
+*.log
