@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { CreateLoanUseCase } from './CreateLoanUseCase.js';
-import { LoanDomainService } from '../../domain/services/LoanDomainService.js';
-import { Book } from '../../domain/entities/Book.js';
-import { Loan } from '../../domain/entities/Loan.js';
-import { LoanStatus } from '../../domain/models/LoanStatus.js';
-import { IBookRepository } from '../../domain/repository/IBookRepository.js';
-import { ILoanRepository } from '../../domain/repository/ILoanRepository.js';
-import { BookNotFoundError } from '../../domain/exceptions/BookNotFoundError.js';
-import { NoAvailableCopiesError } from '../../domain/exceptions/NoAvailableCopiesError.js';
+import { CreateLoanUseCase } from '../../../src/application/services/CreateLoanUseCase.js';
+import { LoanDomainService } from '../../../src/domain/services/LoanDomainService.js';
+import { Book } from '../../../src/domain/entities/Book.js';
+import { Loan } from '../../../src/domain/entities/Loan.js';
+import { LoanStatus } from '../../../src/domain/models/LoanStatus.js';
+import { IBookRepository } from '../../../src/domain/repository/IBookRepository.js';
+import { ILoanRepository } from '../../../src/domain/repository/ILoanRepository.js';
+import { BookNotFoundError } from '../../../src/domain/exceptions/BookNotFoundError.js';
+import { NoAvailableCopiesError } from '../../../src/domain/exceptions/NoAvailableCopiesError.js';
 
 // ─── In-memory repositories ────────────────────────────────────────────────
 

@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { CheckAvailabilityUseCase } from './CheckAvailabilityUseCase.js';
-import { Book } from '../../domain/entities/Book.js';
-import { IBookRepository } from '../../domain/repository/IBookRepository.js';
-import { BookNotFoundError } from '../../domain/exceptions/BookNotFoundError.js';
+import { CheckAvailabilityUseCase } from '../../../src/application/services/CheckAvailabilityUseCase.js';
+import { Book } from '../../../src/domain/entities/Book.js';
+import { IBookRepository } from '../../../src/domain/repository/IBookRepository.js';
+import { BookNotFoundError } from '../../../src/domain/exceptions/BookNotFoundError.js';
 
 class InMemoryBookRepository implements IBookRepository {
   private books: Map<string, Book> = new Map();
