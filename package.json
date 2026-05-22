@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/IamStivgo/libreria-javeriana#readme",
   "dependencies": {
+    "@fastify/awilix": "^8.2.0",
     "@fastify/error": "^4.2.0",
     "awilix": "^13.0.3",
     "drizzle-orm": "^0.45.2",

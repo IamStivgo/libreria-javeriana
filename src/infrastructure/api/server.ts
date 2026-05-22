@@ -1,4 +1,5 @@
 import Fastify, { FastifyInstance } from 'fastify';
+import { fastifyAwilixPlugin, diContainer } from '@fastify/awilix';
 import { ZodError } from 'zod';
 import { DomainError } from '../../domain/exceptions/DomainError.js';
 import { BookNotFoundError } from '../../domain/exceptions/BookNotFoundError.js';
@@ -7,12 +8,25 @@ import { NoAvailableCopiesError } from '../../domain/exceptions/NoAvailableCopie
 import { bookRoutes } from './routes/book.routes.js';
 import { loanRoutes } from './routes/loan.routes.js';
 import { env } from '../../util/env.js';
+import { buildContainer } from '../../configuration/container.js';
 
 export function buildServer(): FastifyInstance {
   const app = Fastify({
     logger: {
       level: env.NODE_ENV === 'test' ? 'silent' : 'info',
     },
+  });
+
+  // ─── Dependency injection ────────────────────────────────────────────────
+  app.register(fastifyAwilixPlugin, {
+    disposeOnClose: true,
+    disposeOnResponse: true,
+  });
+
+  app.addHook('onRegister', () => {
+    const container = buildContainer();
+    // Merge registrations into the diContainer managed by the plugin
+    diContainer.register(container.registrations);
   });
 
   // ─── Global error handler ──────────────────────────────────────────────
