@@ -25,6 +25,9 @@ services:
       dockerfile: Dockerfile
     container_name: libreria_javeriana_api
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     environment:
       NODE_ENV: production
       PORT: 3000
