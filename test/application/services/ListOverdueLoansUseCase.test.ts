@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { ListOverdueLoansUseCase } from './ListOverdueLoansUseCase.js';
-import { Loan } from '../../domain/entities/Loan.js';
-import { LoanStatus } from '../../domain/models/LoanStatus.js';
-import { ILoanRepository } from '../../domain/repository/ILoanRepository.js';
+import { ListOverdueLoansUseCase } from '../../../src/application/services/ListOverdueLoansUseCase.js';
+import { Loan } from '../../../src/domain/entities/Loan.js';
+import { LoanStatus } from '../../../src/domain/models/LoanStatus.js';
+import { ILoanRepository } from '../../../src/domain/repository/ILoanRepository.js';
 
 class InMemoryLoanRepository implements ILoanRepository {
   private loans: Loan[] = [];

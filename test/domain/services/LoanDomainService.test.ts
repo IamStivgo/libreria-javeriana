@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { LoanDomainService } from './LoanDomainService.js';
-import { LoanStatus } from '../models/LoanStatus.js';
-import { Loan } from '../entities/Loan.js';
-import { Book } from '../entities/Book.js';
+import { LoanDomainService } from '../../../src/domain/services/LoanDomainService.js';
+import { LoanStatus } from '../../../src/domain/models/LoanStatus.js';
+import { Loan } from '../../../src/domain/entities/Loan.js';
+import { Book } from '../../../src/domain/entities/Book.js';
 
 describe('LoanDomainService', () => {
   let service: LoanDomainService;

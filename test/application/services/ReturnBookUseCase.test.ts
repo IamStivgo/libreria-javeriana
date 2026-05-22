@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { ReturnBookUseCase } from './ReturnBookUseCase.js';
-import { Book } from '../../domain/entities/Book.js';
-import { Loan } from '../../domain/entities/Loan.js';
-import { LoanStatus } from '../../domain/models/LoanStatus.js';
-import { IBookRepository } from '../../domain/repository/IBookRepository.js';
-import { ILoanRepository } from '../../domain/repository/ILoanRepository.js';
-import { LoanNotFoundError } from '../../domain/exceptions/LoanNotFoundError.js';
+import { ReturnBookUseCase } from '../../../src/application/services/ReturnBookUseCase.js';
+import { Book } from '../../../src/domain/entities/Book.js';
+import { Loan } from '../../../src/domain/entities/Loan.js';
+import { LoanStatus } from '../../../src/domain/models/LoanStatus.js';
+import { IBookRepository } from '../../../src/domain/repository/IBookRepository.js';
+import { ILoanRepository } from '../../../src/domain/repository/ILoanRepository.js';
+import { LoanNotFoundError } from '../../../src/domain/exceptions/LoanNotFoundError.js';
 
 class InMemoryBookRepository implements IBookRepository {
   private books: Map<string, Book> = new Map();
