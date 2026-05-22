@@ -20,7 +20,7 @@ const envSchema = z.object({
 const parsed = envSchema.safeParse(process.env);
 
 if (!parsed.success) {
-  const errors = parsed.error.errors
+  const errors = parsed.error.issues
     .map((e) => `  - ${e.path.join('.')}: ${e.message}`)
     .join('\n');
 
